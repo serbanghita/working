@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Working.js</title>
+		<script src="combine.php" type="text/javascript"></script>
+	</head>
+	<body>
+
+		<div id="firstElement">
+			<p>This is the first element.</p>
+		</div>
+
+		<div id="secondElement">
+			<ul>
+				<li class="secondElement">First list element</li>
+				<li class="secondElement">Second list element</li>
+				<li class="secondElement">Third list element</li>
+				<li class="secondElement">Forth list element</li>
+			</ul>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+
+		var i = 0;
+
+		$(document).ready(function(){
+
+			console.log(++i);
+			console.log('ready() test');
+
+			console.log(++i);
+			console.log( $('#firstElement') );
+
+			console.log(++i);
+			console.log( $('.secondElement') );
+
+			console.log(++i);
+			$('.secondElement').bind('click', function(){
+				console.log('click!');
+				$(this).attr('style', 'border:1px solid red');
+			});
+
+		});
+
+
+	</script>
+</html>
