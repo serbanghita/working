@@ -20,8 +20,38 @@
 			</ul>
 		</div>
 
+		<div id="thirdElement">
+			<form action="demo.php" method="post" name="thirdFormElement" id="thirdFormElement">
+				<fieldset>
+					<legend>Form</legend>
+
+					<div class="field">
+						<label for="name">Full name</label> <input type="text" name="name" id="name" value="Serban Ghita" placeholder="Full name" />
+					</div>
+
+					<div class="field">
+						<label for="email">E-mail</label> <input type="email" name="email" id="email" value="serbanghita@gmail.com" placeholder="Your email" />
+					</div>
+
+					<div class="field">
+						<label for="gender">Gender</label>
+						<select name="gender" id="gender">
+							<option value="m" selected>Male</option>
+							<option value="f">Female</option>
+							<option value="na">Unknown</option>
+						</select>
+					</div>
+
+					<input type="submit" name="saveData" value="Update" id="saveDataBtn" />
+					<input type="hidden" name="token" value="ae32df120d" />
+
+				</fieldset>
+			</form>
+		</div>
+
 	</body>
-	<script type="text/javascript">
+
+	<script type="text/javascript" id="tests">
 
 		var i = 0;
 
@@ -38,8 +68,18 @@
 
 			console.log(++i);
 			$('.secondElement').bind('click', function(){
-				console.log('click!');
+
 				$(this).attr('style', 'border:1px solid red');
+
+			});
+
+			console.log(++i);
+			$('#thirdFormElement').bind('submit', function(e){
+
+				console.log('submit!');
+				e.preventDefault();
+				return false;
+
 			});
 
 		});
