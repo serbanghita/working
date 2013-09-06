@@ -26,28 +26,33 @@
  * @author      Serban Ghita <serbanghita@gmail.com>
  * @license     http://www.opensource.org/licenses/mit-license.php  MIT License
  * @link        https://github.com/serbanghita/working.js
- * @description Include this file when developing working.js ;)
+ * @description Generates the final working.js file
  */
 
 $jsFiles = array(
-    'intro.js',
+    'build.intro.js',
     'core.js',
     'utils.js',
     'event.js',
     'ajax.js',
-    'expose.js',
-    'outro.js'
+    'build.expose.js',
+    'build.outro.js'
 );
 
 $workingJs = '';
 
 foreach($jsFiles as $jsFileName){
 
-    $handle = fopen('src/'.$jsFileName, "r");
+    $handle = fopen(dirname(__FILE__).'/../src/'.$jsFileName, "r");
     $workingJs .= "\n".fread($handle, filesize('src/'.$jsFileName)). "\n";
     fclose($handle);
 
 }
 
-header("Content-type: text/javascript");
-echo $workingJs;
+$handle = fopen(dirname().'/working.js', 'w');
+$fwrite = fwrite($handle, $workingJs);
+if($fwrite){
+    echo 'Succesfuly built the dist file.';
+} else { 
+    echo 'There was a problem bulding the dist file.';    
+}
