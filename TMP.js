@@ -26,6 +26,10 @@ $btn.classList
 $btn.textContent
 $btn.parentNode
 
+$btn.classList.add('newClass');
+$btn.classList.remove('oldClass');
+$btn.getAttribute('data-id');
+
 var $notice = document.createElement("div");
 $notice.innerHTML = '<b>Like a bawsz!</b>';
 document.body.appendChild($notice);
@@ -44,4 +48,12 @@ $test.addEventListener('click', function (e) {
 
 Array.prototype.filter.call($elements, function(elem){
     return true; // return false;
+});
+
+['a', 'b', 'c'].forEach(function (entry) {
+    console.log(entry);
+});
+
+var test = ['a', 'b', 'c'].map(function (entry) {
+    return entry.concat('1');
 });
