@@ -59,6 +59,7 @@ var test = ['a', 'b', 'c'].map(function (entry) {
 });
 
 // XHR
+// Example from https://github.com/jslogger/jslogger-tracker/blob/master/jslogger.js
 var createCORSRequest = function(url) {
       var xhr;
       xhr = typeof XMLHttpRequest !== "undefined" ? new XMLHttpRequest() : null;
