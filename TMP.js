@@ -57,3 +57,20 @@ Array.prototype.filter.call($elements, function(elem){
 var test = ['a', 'b', 'c'].map(function (entry) {
     return entry.concat('1');
 });
+
+// XHR
+var createCORSRequest = function(url) {
+      var xhr;
+      xhr = typeof XMLHttpRequest !== "undefined" ? new XMLHttpRequest() : null;
+      if (this.proto !== "https" && xhr && "withCredentials" in xhr) {
+        xhr.open("post", url, true);
+      } else if (this.proto !== "https" && typeof XDomainRequest !== "undefined") {
+        xhr = new XDomainRequest();
+        xhr.open("post", url);
+      } else {
+        xhr = document.createElement("script");
+        xhr.type = "text/javascript";
+        xhr.src = url;
+      }
+      return xhr;
+};
