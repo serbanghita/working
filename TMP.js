@@ -58,6 +58,27 @@ var test = ['a', 'b', 'c'].map(function (entry) {
     return entry.concat('1');
 });
 
+// Iteration through arrays and objects. Compatible with IE.
+// Example from formToObject.js
+function forEach( arr, callback ){
+
+	if([].forEach){
+		return [].forEach.call(arr, callback);
+	}
+
+	var i;
+	for(i in arr){
+		// Using Object.prototype.hasOwnProperty instead of
+		// arr.hasOwnProperty for IE8 compatibility.
+		if( Object.prototype.hasOwnProperty.call(arr,i) ){
+			callback.call(arr, arr[i]);
+		}
+	}
+
+	return;
+
+}
+
 // XHR
 // Example from https://github.com/jslogger/jslogger-tracker/blob/master/jslogger.js
 var createCORSRequest = function(url) {
