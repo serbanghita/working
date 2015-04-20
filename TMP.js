@@ -123,3 +123,29 @@ function Circle(pos,rad,color) {
 function getDistance(p1, p2) {
     return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
 }
+
+// Module pattern (class like)
+(function (Module) {
+    
+    Module.Person = function (name) {
+        // constructor
+        this.name = name;
+    };
+    
+    Module.Person.prototype.constructor = Module.Person;
+    
+    // private method
+    var _privateMethod = function() {
+        // whatever bro
+    };
+        
+    // public method
+    Module.Person.prototype.speak = function() {
+        console.log("Hello there, I'm " + this.name);
+    };
+    
+    return Module;
+    
+})(window.Module = window.Module || {});
+
+var anth = new Module.Person("Anthony").speak();
