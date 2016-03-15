@@ -149,3 +149,16 @@ function getDistance(p1, p2) {
 })(window.Module = window.Module || {});
 
 var anth = new Module.Person("Anthony").speak();
+
+// Generate UUIDs.
+function UUIDcreatePart(length) {
+    var uuidpart = "";
+    for (var i=0; i<length; i++) {
+        var uuidchar = parseInt((Math.random() * 256), 10).toString(16);
+        if (uuidchar.length == 1) {
+            uuidchar = "0" + uuidchar;
+        }
+        uuidpart += uuidchar;
+    }
+    return uuidpart;
+}
