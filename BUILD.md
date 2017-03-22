@@ -36,3 +36,13 @@
     ]
 }
 ```
+
+```
+ "scripts": {
+    "build" : "npm run copy",
+    "copy": "npm run copy:jquery && npm run copy:moment && npm run copy:common-css",
+    "copy:jquery": "mkdir -p js/libs/ && cp node_modules/aaaaa/build/js/libs/jquery.* js/libs/",
+    "copy:moment": "mkdir -p js/libs/ && cp node_modules/aaaaa/build/js/libs/moment.js js/libs/",
+    "copy:common-css": "mkdir -p css/ && cp node_modules/aaaaa/index.css css/"
+  },
+```
