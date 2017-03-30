@@ -1,3 +1,7 @@
+let a = document.createElement("div"); 
+a.innerHTML = '<script>var = "a";</script>';
+console.log(a.innerText);
+
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Document has loaded.');
 });
