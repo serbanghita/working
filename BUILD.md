@@ -1,4 +1,10 @@
 ```
+  "publishConfig": {
+    "registry": "https://artifactory.corp.test.com:443/artifactory/api/npm/npm-lr-release-local/"
+  },
+```
+
+```
   "scripts": {
     "bower-install": "$(npm bin)/bower install",
     "build": "$(npm bin)/gulp",
