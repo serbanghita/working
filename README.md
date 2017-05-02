@@ -1,7 +1,6 @@
-working.js
+Working
 ==========
-
-Various code and build snippets for JavaScript & all.
+> Various code and build snippets for JavaScript & all.
 
 
 * Checkout github pull requests locally - https://gist.github.com/piscisaureus/3342247
