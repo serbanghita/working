@@ -1,3 +1,10 @@
+// Transform document.cookie string into object
+document.cookie.split(";").reduce((acc, cookieStr) => {
+  let cookieArr = cookieStr.split("=", 2).map((val) => val.trim());
+  acc[cookieArr[0]] = cookieArr[1];
+  return acc;
+}, {});
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
