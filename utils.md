@@ -1,6 +1,6 @@
 Extending deep string valued objects
 
-```
+```javascript
 function test() {
         const destination = arguments[0];
         const sources = Array.prototype.slice.call(arguments, [1]);
