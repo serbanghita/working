@@ -23,8 +23,15 @@ function test() {
         });
 
 
-        return destination;
-    };
+  return destination;
+};
 ```
 
-`test({name: "Serban", info: {age: 34, sex: "male"}}, {info: {age: 10}}, {info: {sex: "robot"}})`
+```javascript
+  test(
+    {name: "Serban", info: {age: 34, sex: "male"}}, 
+    { name: "T-1000" },
+    { info: {age: 10} }, 
+    { info: {sex: "female"} }
+  )
+ ```
