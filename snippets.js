@@ -183,3 +183,31 @@ function UUIDcreatePart(length) {
     }
     return uuidpart;
 }
+
+
+// Extend object literals only.
+function extendDeep() {
+  'use strict';
+  var destination = arguments[0];
+  var sources = Array.prototype.slice.call(arguments, [1]);
+
+  if (sources.length === 0) {
+    return destination;
+  }
+
+  var i;
+  sources.forEach(function(source) {
+    for (i in source) {
+      if (source.hasOwnProperty(i)) {
+        if (destination[i] && typeof destination[i] === 'object' && Object.keys(destination[i]).length) {
+          extendDeep(destination[i], source[i]);
+        } else {
+          destination[i] = source[i];
+        }
+      }
+    }
+  });
+
+
+  return destination;
+};
