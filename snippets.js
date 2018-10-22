@@ -211,3 +211,12 @@ function extendDeep() {
 
   return destination;
 };
+
+  function dragElem(elem, xAmount, yAmount) {
+    const x = elem.getBoundingClientRect().width * xAmount;
+    const y = elem.getBoundingClientRect().height * yAmount;
+
+    elem.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }));
+    elem.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: x, clientY: y }));
+    elem.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
+  }
