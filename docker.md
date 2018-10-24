@@ -1,3 +1,12 @@
+## Cleanup on Mac
+
+```sh
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+docker volume rm $(docker volume ls |awk '{print $2}')
+rm -rf ~/Library/Containers/com.docker.docker/Data/*
+```
+
 ## Remove all dangling images with `<none:none>` (-f optional)
 
 `docker rmi -f $(docker images -f "dangling=true" -q)`
