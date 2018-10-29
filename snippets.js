@@ -220,3 +220,16 @@ function extendDeep() {
     elem.dispatchEvent(new MouseEvent('mousemove', { bubbles: true, clientX: x, clientY: y }));
     elem.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
   }
+
+// promisify condition
+a = new Promise((resolve, reject) => {
+  let a = 0;
+  const i = setInterval(() => {
+    console.log(a);
+    if (a === 10) {
+        clearInterval(i);
+    	resolve(a);
+    }
+	a++;
+  }, 16);
+}).then((r) => console.log("Response", r));
