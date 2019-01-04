@@ -22,3 +22,20 @@ import myLibrary from 'myLibrary';
 const AA = new myLibrary.LibraryA.ClassA();
 const BA = new myLibrary.LibraryB.ClassB();
 ```
+
+```typescript
+class LazyInitialisedComposite
+{
+
+    public lazyInitialise<T>(
+        prop: string,
+        // compositeClass is a javascript class, non instantiated
+        compositeClass: { new(...args: any[]) },
+        ...args: any[]
+    ): T {
+        if (this[prop] === undefined) {
+            this[prop] = new compositeClass(args);
+        }
+        return this[prop];
+    }
+```
