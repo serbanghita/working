@@ -39,3 +39,10 @@ class LazyInitialisedComposite
         return this[prop];
     }
 ```
+
+
+```typescript
+function staticCast<AA>(value: AA): AA {
+    return value;
+}
+```
