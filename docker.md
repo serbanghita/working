@@ -19,3 +19,7 @@ https://chromium.googlesource.com/chromium/src/+/lkgr/docs/user_data_dir.md
 Dockerizing Chrome Security Concerns #341 - about `Failed to move to new namespace: PID namespaces supported, Network namespace supported, but failed: errno = Operation not permitted` error.
 
 Chrome on Docker with custom custom seccomp profile: https://github.com/jessfraz/dockerfiles/blob/master/chrome/stable/Dockerfile#L17
+
+## docker: Got permission denied while trying to connect to the Docker daemon socket
+
+`sudo usermod -a -G docker $USER`
