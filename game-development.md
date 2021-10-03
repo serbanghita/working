@@ -1,6 +1,10 @@
 Binding keyboard events
 
 ```typescript
+private keysPressed: Set<string> = new Set([]);
+
+// ...
+
 window.addEventListener("keydown", (e) => {
             if (this.keysPressed.has(e.code)) {
                 return;
