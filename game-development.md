@@ -19,6 +19,9 @@ window.addEventListener("keydown", (e) => {
             this.keysPressed.delete(e.code);
         }, { capture: false });
         
+    public keyPressed(key: string):boolean {
+        return this.keysPressed.size > 0 && this.keysPressed.has(key);
+    }
 ```
 
 Unbinding keyboard events
