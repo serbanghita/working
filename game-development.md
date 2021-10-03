@@ -11,7 +11,7 @@ Factory: from declaration to instance
 
 Binding keyboard events
 
-```typescript
+```ts
 private keysPressed: Set<string> = new Set([]);
 
 // ...
@@ -37,7 +37,7 @@ window.addEventListener("keydown", (e) => {
 
 Unbinding keyboard events
 
-```typescript
+```ts
     private unbind() {
         window.removeEventListener(eventName, listener, useCapture);
         window.removeEventListener(eventName, listener, useCapture);
@@ -46,7 +46,7 @@ Unbinding keyboard events
 
 Movement by keyboard
 
-```typescript
+```ts
             if (this.keyPressed(keyboard.properties.UP)) {
                 position.properties.y -= velocity.properties.y;
             } else if (this.keyPressed(keyboard.properties.DOWN)) {
