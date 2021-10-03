@@ -1,6 +1,6 @@
 Binding keyboard events
 
-```
+```typescript
 window.addEventListener("keydown", (e) => {
             if (this.keysPressed.has(e.code)) {
                 return;
@@ -19,7 +19,7 @@ window.addEventListener("keydown", (e) => {
 
 Unbinding keyboard events
 
-```
+```typescript
     private unbind() {
         window.removeEventListener(eventName, listener, useCapture);
         window.removeEventListener(eventName, listener, useCapture);
@@ -28,7 +28,7 @@ Unbinding keyboard events
 
 Movement by keyboard
 
-```
+```typescript
             if (this.keyPressed(keyboard.properties.UP)) {
                 position.properties.y -= velocity.properties.y;
             } else if (this.keyPressed(keyboard.properties.DOWN)) {
