@@ -1,3 +1,14 @@
+Factory: from declaration to instance
+
+```ts
+    public addSystem<T extends System>(systemDeclaration: new (props: any) => T, properties?: {}): T {
+        const instance = new systemDeclaration(properties);
+        this.systems.set(systemDeclaration.name, instance as T);
+
+        return instance;
+    }
+```
+
 Binding keyboard events
 
 ```typescript
