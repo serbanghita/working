@@ -1,6 +1,6 @@
 class Component {
   public prototype!: Component & { bitmask: number };
-  constructor(public properties: any) {}
+  constructor(public properties: {}) {}
 }
 
 interface IPositionProps {
