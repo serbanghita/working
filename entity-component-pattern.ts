@@ -1,6 +1,15 @@
+interface Component {
+  bitmask: number;
+  prototype: {
+    bitmask: number;
+  }
+}
+
 class Component {
-  public prototype!: Component & { bitmask: number };
-  constructor(public properties: {}) {}
+  // public prototype!: Component & { bitmask: number };
+  constructor(public properties: {}) {
+    this.properties = properties;
+  }
 }
 
 interface IPositionProps {
@@ -9,14 +18,14 @@ interface IPositionProps {
 }
 
 class Position extends Component {
-  constructor(public properties: IPositionProps) {
+  constructor(public properties: IPositionProps) {  
     super(properties);
   }
 }
 
 let BITMASK: number = 1;
 
-function registerComponent<T extends Component>(componentDeclaration: T) {
+function registerComponent(componentDeclaration: typeof Component) {
   componentDeclaration.prototype.bitmask = ++BITMASK;
 }
 
@@ -31,6 +40,8 @@ class Entity {
     this.components[componentInstance.constructor.name] = componentInstance;
   }
 }
+
+registerComponent(Position);
 
 const player = new Entity();
 player.addComponent(new Position({ x: 10, y: 20 }));
