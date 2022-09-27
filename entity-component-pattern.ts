@@ -23,10 +23,11 @@ class Position extends Component {
   }
 }
 
-let BITMASK: number = 1;
+let BITMASK: number = 0b1;
 
+// This fn adds an unique bitmask to each "registered" Component class.
 function registerComponent(componentDeclaration: typeof Component) {
-  componentDeclaration.prototype.bitmask = ++BITMASK;
+  componentDeclaration.prototype.bitmask = ((BITMASK << 0b1) | 0b1);
 }
 
 class Entity {
@@ -41,8 +42,11 @@ class Entity {
   }
 }
 
+// Here we register our components.
 registerComponent(Position);
+// registerComponent(Body)
+// registerComponent(Renderable)
+// ...etc...
 
 const player = new Entity();
 player.addComponent(new Position({ x: 10, y: 20 }));
-
