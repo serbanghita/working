@@ -34,6 +34,7 @@ function sendHttpRequest() {
   curl -i -X $1 "${2}" ${@:3}
 }
 
+# from https://www.markusdosch.com/2022/05/generating-a-random-string-on-linux-macos/
 function generatePassword() {
   chars="${1:-64}"
   cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w $chars | head -n 1
