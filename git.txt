@@ -1,0 +1,5 @@
+Copy the hash of the commit you want to fix.
+git commit --fixup=<commit hash>
+git rebase --autosquash -i main.
+Check the open text editor and close it if everything looks good (:q!).
+git push -f
