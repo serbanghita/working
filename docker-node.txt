@@ -1,0 +1,21 @@
+# Use slim variant for smaller attack surface (still based on bullseye)
+FROM node:20-slim
+
+# Step 1: Create the directory and set correct ownership
+RUN mkdir -p /home/node/app && chown -R node:node /home/node/app
+
+# Step 2: Set working directory (still as root)
+WORKDIR /home/node/app
+
+# Step 3: Copy package files and install dependencies (as root)
+COPY --chown=node:node package*.json ./
+RUN npm ci --only=production && npm cache clean --force
+
+# Step 4: Switch to the non-root user for security
+USER node
+
+# Step 5: Copy the rest of the app files with correct permissions
+COPY --chown=node:node . .
+
+# Step 6: Run the application
+CMD ["node", "index.js"]
